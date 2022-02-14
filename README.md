@@ -47,8 +47,8 @@ Here are API details:
   the resulting string would be "\[Bug 2\] Registration Form: Add password repeat"
 - [Sprint](src/main/java/com/epam/rd/autotasks/sprintplanning/Sprint.java)\
   Sprints has the time capacity and the tickets limit, specified via constructor.
-  It is not allowed for a Sprint to contain tickets with total estimate grater than time capacity.
-  It is not allowed for a Sprint to contain total amount of tickets grater than tickets limit.\
+  It is not allowed for a Sprint to contain tickets with total estimate greater than time capacity.
+  It is not allowed for a Sprint to contain total amount of tickets greater than tickets limit.\
   We consider a sprint to accept tickets via `add*` methods.
   That methods return `true` when an input ticket was accepted and `false` otherwise.
   Note that we consider a sprint to not accept:

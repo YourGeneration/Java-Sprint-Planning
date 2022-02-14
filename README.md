@@ -58,9 +58,9 @@ Here are API details:
   4. any ticket, if the sprint ticket limit is reached.
   - `addUserStory(UserStory userStory)` - accepts a userStory, if it is not `null`, not completed
   and its uncompleted dependencies are already accepted to the sprint.
-  Returns `true` is the user story is accepted, `false` otherwise.
+  Returns `true` if the user story is accepted, `false` otherwise.
   - `addBug(Bug bugReport)` - accepts a userStory, if it is not `null` and not completed.
-  Returns `true` is the bug is accepted, `false` otherwise.
+  Returns `true` if the bug is accepted, `false` otherwise.
   - `getTickets()` - Returns a defensive copy array of the sprint tickets.
   Make sure the order of tickets is as they were accepted to the sprint.
   - `getTotalEstimate()` - Returns the sum of estimates of all the tickets accepted to the sprint.

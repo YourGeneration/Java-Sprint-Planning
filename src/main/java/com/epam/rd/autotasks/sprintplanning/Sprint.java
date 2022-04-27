@@ -10,7 +10,6 @@ public class Sprint {
     private final int TICKETS_LIMIT;
     private int capacityNow = 0;
     private int numberOfTickets = 0;
-    //private List<Ticket> listsOfUserStories = new LinkedList<Ticket>();
     private Ticket[] arrayOfUserStories=new Ticket[1];
 
     public Sprint(int capacity, int ticketsLimit) {

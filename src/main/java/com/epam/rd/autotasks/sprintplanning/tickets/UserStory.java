@@ -13,7 +13,6 @@ public class UserStory extends Ticket {
         userStory = new UserStory[dependsOn.length];
         userStory = dependsOn;
     }
-   
     @Override
     public void complete() {
         if(userStory.length == 0){

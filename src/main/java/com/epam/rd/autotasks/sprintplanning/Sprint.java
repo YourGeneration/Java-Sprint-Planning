@@ -3,6 +3,8 @@ package com.epam.rd.autotasks.sprintplanning;
 import com.epam.rd.autotasks.sprintplanning.tickets.Bug;
 import com.epam.rd.autotasks.sprintplanning.tickets.Ticket;
 import com.epam.rd.autotasks.sprintplanning.tickets.UserStory;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Sprint {
     private final int CAPACITY;
@@ -22,23 +24,17 @@ public class Sprint {
             return false;
         }
         else{
-        numberOfTickets++; 
-        capacityNow += checkCapacity(userStory);
-        
-        
-        if(numberOfTickets==1){
-            arrayOfUserStories[numberOfTickets-1] = userStory;
-            return true;
+                
+            numberOfTickets++; 
+            capacityNow += checkCapacity(userStory);
             
-        }
-        else{
             Ticket[] copy = new Ticket[numberOfTickets];
             System.arraycopy(arrayOfUserStories, 0, copy, 0, arrayOfUserStories.length); 
             copy[numberOfTickets-1] = userStory;
             arrayOfUserStories = new Ticket[numberOfTickets];
             System.arraycopy(copy, 0, arrayOfUserStories, 0, copy.length);  
             return true; 
-        }
+            
         } 
     }
 
@@ -55,31 +51,36 @@ public class Sprint {
     }
 
     public boolean addBug(Bug bugReport) {
-        if(numberOfTickets >= TICKETS_LIMIT || bugReport.userStory == null || 
-        ( capacityNow + checkCapacity(bugReport.userStory)) > CAPACITY){
+        if(bugReport == null) return false;
+        if(numberOfTickets >= TICKETS_LIMIT || bugReport.userStory == null || bugReport.getEstimate()+capacityNow >CAPACITY){
             return false;
         }
         else{
-        numberOfTickets++; 
-        capacityNow += bugReport.userStory.getEstimate();
-        
-        
-        if(numberOfTickets==1){
-            arrayOfUserStories[numberOfTickets-1] = bugReport.userStory;
-            return true;
+
             
+            //    int counter = 0;
+            //    for(int i = 0;i<bugReport.userStory.userStory.length;i++){
+            //        for(int j = 0;j<arrayOfUserStories.length;j++){
+           //             if(bugReport.userStory.userStory[i].getId()==arrayOfUserStories[j].getId())counter++;
+            //        }
+            //        if(counter == 0)return false;
+            //        else counter = 0;
+            //    }
         }
-        else{
+            
+            numberOfTickets++; 
+            capacityNow += bugReport.getEstimate();
+        
             Ticket[] copy = new Ticket[numberOfTickets];
             System.arraycopy(arrayOfUserStories, 0, copy, 0, arrayOfUserStories.length); 
-            copy[numberOfTickets-1] = bugReport.userStory;
+            copy[numberOfTickets-1] = bugReport;
             arrayOfUserStories = new Ticket[numberOfTickets];
             System.arraycopy(copy, 0, arrayOfUserStories, 0, copy.length);  
             return true; 
-        }
+            
         } 
-    }
-
+    
+    
     public Ticket[] getTickets() {
         Ticket[] copy = new Ticket[numberOfTickets];
         System.arraycopy(arrayOfUserStories, 0, copy, 0, arrayOfUserStories.length); 
